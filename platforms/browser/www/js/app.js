@@ -1,0 +1,42 @@
+// Dom7
+var $ = Dom7;
+
+// Theme
+var theme = 'auto';
+
+
+// Init App
+var app = new Framework7({
+  id: 'com.tailorapp.app',
+  root: '#app',
+  theme: theme,
+  data: function () {
+    return {
+      user: {
+        firstName: '',
+        lastName: '',
+      },
+    };
+  },
+  methods: {
+    helloWorld: function () {
+      app.dialog.alert('Hello World!');
+    },
+  },
+  routes: routes,
+  popup: {
+    closeOnEscape: true,
+  },
+  sheet: {
+    closeOnEscape: true,
+  },
+  popover: {
+    closeOnEscape: true,
+  },
+  actions: {
+    closeOnEscape: true,
+  },
+  vi: {
+    placementId: 'pltd4o7ibb9rc653x14',
+  },
+});

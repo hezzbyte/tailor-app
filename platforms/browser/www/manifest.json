@@ -1,0 +1,12 @@
+{
+  "background_color": "#FFF",
+  "display": "standalone",
+  "name": "Tailor App",
+  "short_name": "Tailor App",
+  "version": "com.tailorapp.app",
+  "description": "An application for the tailor/fashion designers community.",
+  "author": "Adeyemi Hezekiah",
+  "icons": [],
+  "start_url": "index.html",
+  "theme_color": "#2196f3"
+}

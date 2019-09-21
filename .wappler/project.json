@@ -1,0 +1,8 @@
+{
+  "projectName": "Framework7",
+  "projectType": "app",
+  "useRouting": true,
+  "routingHandler": "framework7",
+  "routingFile": "/js/routes.js",
+  "frameworks": []
+}

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#2196f3">
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap:">
+  <title>Tailor App</title>
+  <link rel="stylesheet" href="Framework7/4/css/framework7.bundle.min.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="apple-touch-icon" href="img/f7-icon-square.png">
+  <link rel="icon" href="img/f7-icon.png">
+  <link href="https://vjs.zencdn.net/7.6.0/video-js.css" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <div class="statusbar"></div>
+    <div class="panel panel-left panel-cover panel-resizable">
+      <div class="page">
+        <div class="page-content">
+
+          <div class="block-title">Main View Navigation</div>
+          <div class="list links-list">
+            <ul>
+              <li>
+                <a href="/accordion/" class="panel-close">Accordion</a>
+              </li>
+              <li>
+                <a href="/action-sheet/" class="panel-close">Action Sheet</a>
+              </li>
+              <li>
+                <a href="/badge/" class="panel-close">Badge</a>
+              </li>
+              <li>
+                <a href="/buttons/" class="panel-close">Buttons</a>
+              </li>
+              <li>
+                <a href="/cards/" class="panel-close">Cards</a>
+              </li>
+              <li>
+                <a href="/form-storage/" class="panel-close">Form storage</a>
+              </li>
+            </ul>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="view view-main view-init safe-areas" data-master-detail-breakpoint="800" data-url="/">
+      <div class="page">
+        <div class="home navbar">
+          <div class="navbar-inner">
+            <div class="left">
+              <a href="#" class="link icon-only panel-open navlnk" data-panel="left">
+                <i class="icon f7-icons if-not-md">menu</i>
+                <i class="icon material-icons md-only">menu</i>
+              </a>
+            </div>
+
+
+          </div>
+        </div>
+
+        <div class="page-content">
+		
+          <div class="hometop searchbar-hide-on-search">
+            
+          </div>
+          <div class="hero1 searchbar-hide-on-search"><br><br><br><br>
+            <a href="/login-screen-page/" class="user-login"> Login to your account</a>
+          </div>
+		  		  
+			<div class="block homebt1">
+			  <div class="row">
+				<button class="col button button-raised iblue"><i class="f7-icons">videocam_round_fill</i>Free Videos</button>
+				<button class="col button button-raised igreen"><i class="f7-icons">videocam_round_fill</i>Premium Videos</button>
+			  </div>
+
+			</div>
+			
+			<div class="block-title">Browse Tailor By</div>
+			<div class="block homebt">
+			  <div class="row">
+				<button class="col button button-raised blueb"><i class="f7-icons">heart</i>Gender</button>
+				<button class="col button button-raised blueb"><i class="f7-icons">persons</i>Age</button>
+				<button class="col button button-raised blueb"><i class="f7-icons">placemark</i>Location</button>
+			  </div>
+			  <br>
+			
+			</div>
+			
+			<div class="block-title">Browse Designs By</div>
+			<div class="block homebt">
+			  <div class="row">
+				<button class="col button button-raised pinkb"><i class="f7-icons">star</i>Culture</button>
+				<button class="col button button-raised pinkb"><i class="f7-icons">star</i>English</button>
+			  </div>
+			  <br>
+			
+			</div>
+			
+			<video id='my-video' class='video-js hidden' controls preload='auto' width='100%' height='' poster='img/f7-icon.png' data-setup='{}'>
+				<source src='vid/vid1.mp4' type='video/mp4'>
+			</video>
+  
+          <div class="block-title searchbar-found">Featured</div>
+			<div class="feature_sect">
+					<a href="/icons/"><img src="img/ad1.jpg"></a>
+					<a href="/buttons/"><img src="img/ad.png"></a>
+					<img src="img/ad1.png">
+					<img src="img/ad2.jpg">
+			</div>
+				<br>
+
+       
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src='https://vjs.zencdn.net/7.6.0/video.js'></script>
+  <script src="Framework7/4/js/framework7.bundle.min.js"></script>
+  <script src="js/routes.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
