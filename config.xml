@@ -36,8 +36,6 @@
         <icon density="mdpi" src="res/icon/android/drawable-mdpi-icon.png" />
         <icon density="hdpi" src="res/icon/android/drawable-hdpi-icon.png" />
         <icon density="xhdpi" src="res/icon/android/drawable-xhdpi-icon.png" />
-        <icon density="xxhdpi" src="res/icon/android/drawable-xxhdpi-icon.png" />
-        <icon density="xxxhdpi" src="res/icon/android/drawable-xxxhdpi-icon.png" />
         <splash qualifier="ldpi" src="res/screen/android/drawable-port-ldpi-screen.png" />
         <splash qualifier="mdpi" src="res/screen/android/drawable-port-mdpi-screen.png" />
         <splash qualifier="hdpi" src="res/screen/android/drawable-port-hdpi-screen.png" />
