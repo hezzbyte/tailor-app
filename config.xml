@@ -44,7 +44,7 @@
         <splash qualifier="xxhdpi" src="res/screen/android/drawable-port-xxxhdpi-screen.png" />
     </platform>
     <preference name="SplashScreen" value="splash" />
-    <preference name="SplashScreenDelay" value="3000" />
+    <preference name="SplashScreenDelay" value="4000" />
     <preference name="ShowSplashScreenSpinner" value="false" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
 	<preference name="StatusBarBackgroundColor" value="#ee6e73" />
