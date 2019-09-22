@@ -47,5 +47,6 @@
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="ShowSplashScreenSpinner" value="false" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
+	<preference name="Fullscreen" value="true" /> 
     <engine name="browser" spec="~5.0.4" />
 </widget>
