@@ -657,10 +657,9 @@ code {
 	margin-top:-60px;
 }
 .hero1{
-	background-image: linear-gradient(#ec13ac, #d013ec);
+	background-image: linear-gradient(to bottom right, #7134c3, #8829b6);
 	border-radius:10px;
-	margin:20px 20px 30px;
-	min-height:100px;
+	margin:20px 15px 30px;
 	box-shadow:1px 0px 9px rgba(6,2,2,0.42);
 	z-index:9999999;
 	margin-top:-50px;
@@ -718,7 +717,7 @@ code {
 	color:#111;
 	padding:20px 0 5px;
 	height:auto;
-	background-image: linear-gradient(#f8deff, #def7ff, #def7ff);
+	background-image: linear-gradient(to bottom right, #def7f5, #def7f9, #def7ff);
 }
 .homebt1 button i{
 	font-size:32px;
@@ -746,7 +745,7 @@ button.iorange i{
 	color:#d2671f;
 }
 button.ipurple i{
-	color:#d013ec;
+	color:#7134c3;
 }
 
 button.blueb{
@@ -757,6 +756,20 @@ button.blueb{
 	padding:10px 0;
 }
 button.blueb i{
+	display:block;
+	margin-bottom:0px;
+
+}
+button.purpl{
+	background-color:#7134c3 !important;
+	color:#fff;
+	text-align:center;
+	height:auto;
+	padding:10px 0 15px;
+	line-height:16px;
+}
+
+button.purpl i{
 	display:block;
 	margin-bottom:0px;
 
@@ -778,3 +791,17 @@ a.user-login{
 }
 .hidden{display:none;}
 /*ff98d9*/
+.navbar-inner {
+	background-image: linear-gradient(to bottom right, #7134c3, #8829b6);
+	color:#fff;
+}
+.navbar a {
+  
+}
+h2.vidt{
+	margin-bottom:2px !important;
+	margin-top:8px !important;
+}
+.date.date1{
+	font-weight:100;
+}

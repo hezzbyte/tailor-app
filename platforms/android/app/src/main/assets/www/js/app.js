@@ -40,3 +40,19 @@ var app = new Framework7({
     placementId: 'pltd4o7ibb9rc653x14',
   },
 });
+
+// Init/Create main view
+var mainView = app.views.create('.view-main', {
+  url: '/'
+});
+
+
+function gotopage($url){
+	mainView.router.navigate($url);
+}
+
+
+
+
+
+

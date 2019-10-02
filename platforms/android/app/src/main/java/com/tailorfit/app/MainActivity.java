@@ -17,7 +17,7 @@
        under the License.
  */
 
-package com.tailorapp.app;
+package com.tailorfit.app;
 
 import android.os.Bundle;
 import org.apache.cordova.*;

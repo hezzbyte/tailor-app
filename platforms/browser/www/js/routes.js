@@ -11,6 +11,24 @@ var routes = [
     url: './pages/about.html',
     name: 'about',
   },
+  // Free videos
+  {
+    path: '/free-videos/',
+    url: './pages/free-videos.html',
+    name: 'free-videos',
+  },
+  // Free videos
+  {
+    path: '/watch-free-video/',
+    url: './pages/watch-free-video.html',
+    name: 'watch-free-video',
+  },
+  // Premium Videos
+  {
+    path: '/premium-videos/',
+    url: './pages/premium-videos.html',
+    name: 'premium-videos',
+  },
   // Right Panel pages
   {
     path: '/panel-right-1/',
