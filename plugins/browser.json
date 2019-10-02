@@ -1,18 +1,24 @@
 {
-  "prepare_queue": {
-    "installed": [],
-    "uninstalled": []
-  },
-  "config_munge": {
-    "files": {}
-  },
-  "installed_plugins": {
-    "cordova-plugin-splashscreen": {
-      "PACKAGE_NAME": "com.tailorapp.app"
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
     },
-    "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "com.tailorapp.app"
-    }
-  },
-  "dependent_plugins": {}
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.tailorapp.app"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.tailorapp.app"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.tailorapp.app"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.tailorapp.app"
+        }
+    },
+    "dependent_plugins": {}
 }

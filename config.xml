@@ -36,17 +36,25 @@
         <icon density="mdpi" src="res/icon/android/drawable-mdpi-icon.png" />
         <icon density="hdpi" src="res/icon/android/drawable-hdpi-icon.png" />
         <icon density="xhdpi" src="res/icon/android/drawable-xhdpi-icon.png" />
-        <splash qualifier="ldpi" src="res/screen/android/drawable-port-ldpi-screen.png" />
-        <splash qualifier="mdpi" src="res/screen/android/drawable-port-mdpi-screen.png" />
-        <splash qualifier="hdpi" src="res/screen/android/drawable-port-hdpi-screen.png" />
-        <splash qualifier="xhdpi" src="res/screen/android/drawable-port-xhdpi-screen.png" />
-        <splash qualifier="xxhdpi" src="res/screen/android/drawable-port-xxhdpi-screen.png" />
-        <splash qualifier="xxhdpi" src="res/screen/android/drawable-port-xxxhdpi-screen.png" />
-    </platform>
-    <preference name="SplashScreen" value="splash" />
-    <preference name="SplashScreenDelay" value="4000" />
+        <icon density="xxhdpi" src="res/icon/android/drawable-xxhdpi-icon.png" />
+        <icon density="xxxhdpi" src="res/icon/android/drawable-xxxhdpi-icon.png" />
+        <splash density="ldpi" src="res/screen/android/drawable-port-ldpi-screen.png" />
+        <splash density="mdpi" src="res/screen/android/drawable-port-mdpi-screen.png" />
+        <splash density="hdpi" src="res/screen/android/drawable-port-hdpi-screen.png" />
+        <splash density="xhdpi" src="res/screen/android/drawable-port-xhdpi-screen.png" />
+        <splash density="xxhdpi" src="res/screen/android/drawable-port-xxhdpi-screen.png" />
+        <splash density="xxhdpi" src="res/screen/android/drawable-port-xxxhdpi-screen.png" />
+	</platform>   
+	
+	<preference name="phonegap-version" value="cli-7.1.0" />
+	
+	<preference name="SplashScreen" value="screen" />
+    <preference name="SplashScreenDelay" value="3000" />
     <preference name="ShowSplashScreenSpinner" value="false" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
-	
     <engine name="browser" spec="~5.0.4" />
+    <engine name="android" spec="~7.1.4" />
+    <plugin name="phonegap-plugin-barcodescanner" spec="~8.1.0">
+        <variable name="ANDROID_SUPPORT_V4_VERSION" value="27.+" />
+    </plugin>
 </widget>
