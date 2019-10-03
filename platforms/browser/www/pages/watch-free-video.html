@@ -1,21 +1,120 @@
 <!-- Wappler include framework7_4="local" -->
-<div class="page">
-  <div class="navbar">
-    <div class="navbar-inner sliding">
-      <div class="left">
-        <a href="#" class="link back">
-          <i class="icon icon-back"></i>
-          <span class="if-not-md">Back</span>
-        </a>
+<template>
+  <div class="page">
+    <div class="navbar">
+      <div class="navbar-inner sliding">
+        <div class="left">
+          <a href="#" class="link back">
+            <i class="icon icon-back"></i>
+            <span class="if-not-md">Back</span>
+          </a>
+        </div>
+        <div class="title">{{vidname}}</div>
       </div>
-      <div class="title">Watch Free Videos</div>
     </div>
-  </div><br>
-  <div class="page-content">
-     
-	    <iframe src="https://player.vimeo.com/video/356869551" width="100%" height="250" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    <div class="page-content">
+
+	
+<iframe src="https://player.vimeo.com/video/356869551" width="100%" height="250" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 <div class="block"><p><a href="https://vimeo.com/356869551">Outer Monologue: Joy Bryant</a> from <a href="https://vimeo.com/katywang">Katy Wang</a> on <a href="https://vimeo.com">Vimeo</a>.</p></div>
 
 
-	</div>
-</div>
+   
+   
+
+	  
+	  
+      <div class="block block-strong">
+        <ul style="padding-left:25px;word-wrap:break-word;">
+          <li><b>$route.params</b>: {{js 'return JSON.stringify(this.$route.params)'}}</li>
+       </ul>
+
+      
+
+       
+      </div>
+
+	  
+    </div>
+  </div>
+</template>
+<style>
+  p {
+    margin: 10px 0;
+  }
+</style>
+<script>
+  return {
+    // Component Data
+    data: function () {
+      // Must return an object
+      return {
+        name: 'Free Videos',
+      }
+    },
+    // Component Methods
+    methods: {
+      openAlert: function () {
+        var self = this;
+        self.$app.dialog.alert('Hello World');
+      },
+
+    },
+    // Lifecycle Hooks
+    beforeCreate() {
+      console.log('componentBeforeCreate', this)
+    },
+    created() {
+      console.log('componentCreated', this)
+    },
+    beforeMount() {
+      console.log('componentBeforeMount', this)
+    },
+    mounted() {
+      console.log('componentMounted', this);
+/*   	  app.preloader.show();
+	  var dataURL = "http://cakemall/tailorfit/index.php";
+	  
+	  app.request.get(dataURL, function (data) {
+            console.log(data);
+//			app.dialog.alert(data);
+			app.preloader.hide();
+			
+        });*/
+
+    },
+    updated() {
+      console.log('componentUpdated', this);
+    },
+    beforeDestroy() {
+      console.log('componentBeforeDestroy', this);
+    },
+    destroyed() {
+      console.log('componentDestroyed', this);
+    },
+    // Page Events
+    on: {
+      pageMounted: function(e, page) {
+        console.log('pageMounted', page);
+      },
+      pageInit: function(e, page) {
+        console.log('pageInit', page);
+      },
+      pageBeforeIn: function(e, page) {
+        console.log('pageBeforeIn', page);
+      },
+      pageAfterIn: function(e, page) {
+        console.log('pageAfterIn', page);
+      },
+      pageBeforeOut: function(e, page) {
+        console.log('pageBeforeOut', page);
+      },
+      pageAfterOut: function(e, page) {
+        console.log('pageAfterOut', page);
+      },
+      pageBeforeRemove: function(e, page) {
+        console.log('pageBeforeRemove', page);
+      },
+    }
+  }
+</script>

@@ -13,8 +13,7 @@ var app = new Framework7({
   data: function () {
     return {
       user: {
-        firstName: '',
-        lastName: '',
+        appName: 'TailorFit',
       },
     };
   },
@@ -23,6 +22,10 @@ var app = new Framework7({
       app.dialog.alert('Hello World!');
     },
   },
+  	view: {
+		pushState :true,
+		stackPages: true,            
+	},
   routes: routes,
   popup: {
     closeOnEscape: true,

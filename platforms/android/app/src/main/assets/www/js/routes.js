@@ -539,16 +539,16 @@ var routes = [
     },
   },
   {
-    path: '/master-detail/',
-    url: './pages/master-detail-master.html',
-    master: true,
-    detailRoutes: [
-      {
-        path: '/master-detail/:id/',
-        templateUrl: './pages/master-detail-detail.html',
+    path: '/watch-free-video/:user/:userId/:posts/:postId/',
+    componentUrl: './pages/watch-free-video.html',
+    // additional context
+    options: {
+      context: {
+        mainCat: 'free',
       },
-    ]
+    },
   },
+
 
   // Default route (404 page). MUST BE THE LAST
   {

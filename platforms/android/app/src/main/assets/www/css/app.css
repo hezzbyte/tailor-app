@@ -679,12 +679,16 @@ code {
 
 }
 
-.navlnk i{
+.navlnk i1{
 	box-shadow:1px 0px 4px rgba(4,2,2,0.30);
 	background-color:#fff;
 	border-radius:50%;
 	padding:10px !important;
 }
+.navlnk i, .navbar a{
+	color:#fff !important;
+}
+
 .feature_sect{
 	overflow: auto;
 	padding:4px 18px;
@@ -801,7 +805,4 @@ a.user-login{
 h2.vidt{
 	margin-bottom:2px !important;
 	margin-top:8px !important;
-}
-.date.date1{
-	font-weight:100;
 }
