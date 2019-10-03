@@ -539,17 +539,19 @@ var routes = [
     },
   },
   {
-    path: '/watch-free-video/:user/:userId/:posts/:postId/',
+    path: '/watch-free-video/:vidId/',
     componentUrl: './pages/watch-free-video.html',
     // additional context
     options: {
       context: {
-        mainCat: 'free',
+        mainCat: 'Free',
       },
     },
   },
 
 
+  
+  
   // Default route (404 page). MUST BE THE LAST
   {
     path: '(.*)',
