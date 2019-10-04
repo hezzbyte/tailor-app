@@ -541,12 +541,6 @@ var routes = [
   {
     path: '/watch-free-video/:vidId/',
     componentUrl: './pages/watch-free-video.html',
-    // additional context
-    options: {
-      context: {
-        mainCat: 'Free',
-      },
-    },
   },
 
 

@@ -41,14 +41,13 @@
     on: {
       pageInit: function () {
         var self = this;
-		var url = 'http://cakemall/tailorfit/index.php?vidId=' + this.$route.params.vidId;
+		var url = 'http://tailorfitapp/index.php?request=freevideo&vidId=' + this.$route.params.vidId;
         var app = self.$app;
         app.request.get(url, function (video)  {
 			video = JSON.parse(video);    
 			self.$setState({
 			  video: video,
 			});
-                                 
 		  });
      },
     },
