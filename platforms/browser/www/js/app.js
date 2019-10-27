@@ -23,8 +23,8 @@ var app = new Framework7({
     },
   },
   	view: {
-		pushState :true,
-		stackPages: false,            
+		pushState :false,
+		stackPages: true,            
 	},
   routes: routes,
   popup: {
