@@ -1,4 +1,6 @@
 <!-- Wappler include framework7_4="local" -->
+<template>
+
 <div class="page">
   <div class="navbar">
     <div class="navbar-inner sliding">
@@ -19,35 +21,59 @@
     </div>
   </div>
   <div class="page-content">
-     
-	    
-   <div class="card demo-card-header-pic">
-      <a href="/watch-free-video/1/"><div style="background-image:url(https://cdn.framework7.io/placeholder/people-1000x600-6.jpg)" valign="bottom" class="card-header"></div></a>
-      <div class="card-content card-content-padding">
-        <p class="date date1">Posted on January 21, 2015</p>
-		
-        <p><h2 class="vidt"><a href="/watch-free-video/1/">Name of 1st Video</a></h2>Quisque eget vestibulum nulla. Quisque quis dui quis ex ultricies efficitur vitae non felis. Phasellus quis nibh hendrerit...</p>
+     <div style="padding:10px;">
+{{#if videos}}
+      
+          {{#each videos}}
+		  <div class="card demo-card-header-pic">
+			  <div style="background-image:url(https://cdn.framework7.io/placeholder/nature-1000x600-3.jpg)" valign="bottom" class="card-header"></div>
+			  <div class="card-content card-content-padding">
+				<p style="font-size:18px">{{this.name}}</p>
+				<p>{{this.description}}</p>
+			  </div>
+			  <div class="card-footer"><a href="#" class="link"></a><a href="/watch-free-video/{{this.id}}/" class="link">Watch Video <i style="font-size:10px;" class="icon icon-forward"></i></a></div>
+		   </div>
+		   <br>
+		   
+		   
+
+          {{/each}}
+       
+{{else}}
+      <!-- Otherwise show preloader -->
+      <div class="block block-strong text-align-center">
+	  <br>
+        <div class="preloader"></div>
+	  <br>
       </div>
-      <div class="card-footer"><button onclick="gotopage('/watch-free-video/1/');" class="col button button-fill">Watch Video</button></div>
-    </div>
-<br>
+{{/if}}	    
 
-	    
-
-     
-	    
-   <div class="card demo-card-header-pic">
-      <a href="/watch-free-video/2/"><div style="background-image:url(https://cdn.framework7.io/placeholder/people-1000x600-6.jpg)" valign="bottom" class="card-header"></div></a>
-      <div class="card-content card-content-padding">
-        <p class="date date1">Posted on January 21, 2015</p>
-		
-        <p><h2 class="vidt"><a href="/watch-free-video/2/">Name of 2nd Video</a></h2>Quisque eget vestibulum nulla. Quisque quis dui quis ex ultricies efficitur vitae non felis. Phasellus quis nibh hendrerit...</p>
-      </div>
-      <div class="card-footer"><button onclick="gotopage('/watch-free-video/2/');" class="col button button-fill">Watch Video</button></div>
-    </div>
-<br>
-
-	    
 
 	</div>
 </div>
+</template>
+<script>
+  return {
+    data: function () {
+      return {
+        videos: null,
+      }
+    },
+    on: {
+      pageInit: function () {
+        var self = this;
+		var url = mainURL+'?request=freevideos';
+        var app = self.$app;
+        app.request.get(url, function (data)  {
+		console.log(data);
+		data = JSON.parse(data); 
+		console.log(data);
+			
+			self.$setState({
+			  videos: data.videos,
+			});
+		  });
+     },
+    },
+  };
+</script>

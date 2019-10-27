@@ -9,20 +9,33 @@
             <span class="if-not-md">Back</span>
           </a>
         </div>
-        <div class="title">{{#if video}}{{video.name}}{{else}}Loading...{{/if}}</div>
+        <div class="title">{{#if readpost}}{{readpost.title}}{{else}}Loading...{{/if}}</div>
       </div>
     </div>
    <div class="page-content">
-      {{#if video}}
-      <!-- Show user list when it is loaded -->
-	  <iframe src="https://player.vimeo.com/video/{{video.videoid}}" width="100%" height="250" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>  
-      <div class="block"><h3>{{video.name}}</h3><p>{{video.description}}</p></div>
+      <div style="padding:10px;">
+     {{#if readpost}}
+		<div class="card demo-card-header-pic">
+		  <div style="background-image:url(https://cdn.framework7.io/placeholder/nature-1000x600-3.jpg)" valign="bottom" class="card-header"></div>
+		  <div class="card-content card-content-padding">
+			<p style="font-size:18px">{{readpost.title}}</p>
+			<p>{{readpost.content}}</p>
+		  </div>	 
+		</div>
+		   
       {{else}}
       <!-- Otherwise show preloader -->
       <div class="block block-strong text-align-center">
+	  <br>
+	  <br>
+	  <br>
         <div class="preloader"></div>
+	  <br>
+	  <br>
+	  <br>
       </div>
       {{/if}}
+    </div>
     </div>
   </div>
 </template>
@@ -36,19 +49,19 @@
   return {
     data: function () {
       return {
-        video: null,
+        readpost: null,
       }
     },
     on: {
       pageInit: function () {
         var self = this;
-		var url = mainURL+'?request=freevideo&vidId=' + this.$route.params.vidId;
+		var url = mainURL+'?request=readpost&postId=' + this.$route.params.postId;
         var app = self.$app;
-        app.request.get(url, function (video)  {
-		console.log(video);
-			video = JSON.parse(video);    
+        app.request.get(url, function (readpost)  {
+		console.log(readpost);
+			readpost = JSON.parse(readpost);    
 			self.$setState({
-			  video: video,
+			  readpost: readpost,
 			});
 		  });
      },

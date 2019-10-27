@@ -700,18 +700,23 @@ code {
 	margin-right:15px;
 	display:inline-block;
 }
+.homebt a{
+	color:#fff !important;
+	font-weight:900;
+}
 .homebt button{
 	text-align:left;
-	color:#333;
+	color:#fff;
 	text-transform: none;
-	background-color:#def7ff;
+	background-color:#ab72f2;
+	font-weight:900;
 	height:45px;
 }
 .homebt button i{
-	font-size:22px;
+	font-size:16px;
 	font-weight:600;
 	color:#fff;
-	margin:5px;
+	margin:10px;
 	display: inline-flex;
     vertical-align: middle;	
 }
@@ -721,7 +726,9 @@ code {
 	color:#111;
 	padding:20px 0 5px;
 	height:auto;
-	background-image: linear-gradient(to bottom right, #def7f5, #def7f9, #def7ff);
+	color:#fff;
+	font-weight:600;
+	background-image: linear-gradient(to bottom, #f4e4fc, #ab72f2);
 }
 .homebt1 button i{
 	font-size:32px;
@@ -806,3 +813,8 @@ h2.vidt{
 	margin-bottom:2px !important;
 	margin-top:8px !important;
 }
+.hidden{display:none}
+	a{
+		color:#333;
+		font-weight:600;
+	}

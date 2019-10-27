@@ -24,7 +24,7 @@ var app = new Framework7({
   },
   	view: {
 		pushState :true,
-		stackPages: true,            
+		stackPages: false,            
 	},
   routes: routes,
   popup: {
@@ -54,7 +54,7 @@ function gotopage($url){
 	mainView.router.navigate($url);
 }
 
-
+var mainURL = 'https://www.coquitech.website/tailorfit/app/';
 
 
 

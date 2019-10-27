@@ -1,0 +1,147 @@
+<!-- Wappler include framework7_4="local" -->
+<template>
+  <div class="page no-toolbar no-navbar no-swipeback">
+    <div class="page-content login-screen-content">
+	  <br>
+	  <br>
+	  <br>
+	  <div class="login-view">
+		  <div class="login-screen-title">LOGIN</div>
+		  <br>
+		  <br>
+		  <br>
+		  <br>
+		  <form>
+			<div class="list">
+			  <ul>
+				<li class="item-content item-input item-input-with-value">
+				  <div class="item-inner">
+					<div class="item-title item-label">Username</div>
+					<div class="item-input-wrap">
+					  <input type="text" placeholder="" id="demo-username-2" class="input-with-value">
+					  <span class="input-clear-button"></span>
+					</div>
+				  </div>
+				</li>
+				<li class="item-content item-input">
+				  <div class="item-inner">
+					<div class="item-title item-label">Password</div>
+					<div class="item-input-wrap">
+					  <input type="password" placeholder="" id="demo-password-2" class="">
+					</div>
+				  </div>
+				</li>
+			  </ul>
+			</div>
+			<div class="block">
+			  <div class="row">
+				<a href="#" class="col button button-outline" @click="signIn">Login</a>
+			  </div>
+			</div>
+
+			<div class="list">
+			  <div class="block-footer">No account? <a href="#"  @click="switchView1">Register</a>.</div>
+			</div>
+		  </form>
+		
+	  </div>
+	  
+	  <div class="register-view hidden">
+		  <div class="login-screen-title">REGISTER</div>
+		  <br>
+		  <br>
+		  <form>
+			<div class="list">
+			  <ul>
+				<li class="item-content item-input item-input-with-value">
+				  <div class="item-inner">
+					<div class="item-title item-label">Full Name</div>
+					<div class="item-input-wrap">
+					  <input type="text" placeholder="" id="demo-username-2" class="input-with-value">
+					  <span class="input-clear-button"></span>
+					</div>
+				  </div>
+				</li>
+				<li class="item-content item-input item-input-with-value">
+				  <div class="item-inner">
+					<div class="item-title item-label">Email</div>
+					<div class="item-input-wrap">
+					  <input type="text" placeholder="" id="demo-username-2" class="input-with-value">
+					  <span class="input-clear-button"></span>
+					</div>
+				  </div>
+				</li>
+				<li class="item-content item-input item-input-with-value">
+				  <div class="item-inner">
+					<div class="item-title item-label">Username</div>
+					<div class="item-input-wrap">
+					  <input type="text" placeholder="" id="demo-username-2" class="input-with-value">
+					  <span class="input-clear-button"></span>
+					</div>
+				  </div>
+				</li>
+				<li class="item-content item-input item-input-with-value">
+				  <div class="item-inner">
+					<div class="item-input-wrap">
+					  <input type="text" placeholder="" id="demo-username-2" class="input-with-value">
+					  <span class="input-clear-button">dd</span>ddd
+					</div>
+				  </div>
+				</li>
+				<li class="item-content item-input">
+				  <div class="item-inner">
+					<div class="item-title item-label">Password</div>
+					<div class="item-input-wrap">
+					  <input type="password" placeholder="" id="demo-password-2" class="">
+					</div>
+				  </div>
+				</li>
+			  </ul>
+			</div>
+			<div class="block">
+			  <div class="row">
+				<a href="#" class="col button button-outline" @click="signIn">Register</a>
+			  </div>
+			</div>
+
+			<div class="list">
+			  <div class="block-footer">Have account? <a href="#"  @click="switchView2">Login</a>.</div>
+			</div>
+		  </form>
+	  </div>
+		
+	
+	</div>
+  </div>
+</template>
+<script>
+  return {
+    methods: {
+      signIn: function () {
+        var $ = this.$;
+        var app = this.$app;
+        var router = this.$router;
+        var username = $('input#demo-username-2').val();
+        var password = $('input#demo-password-2').val();
+        app.dialog.alert('Username: ' + username + '<br>Password: ' + password, function () {
+          app.loginScreen.close();
+          router.back();
+        })
+      },
+      switchView1: function () {
+        var $ = this.$;
+        var app = this.$app;
+		$('.login-view').hide();
+		$('.register-view').show();
+      
+      },
+      switchView2: function () {
+        var $ = this.$;
+        var app = this.$app;
+		$('.register-view').hide();
+		$('.login-view').show();
+      
+      }
+    }
+  }
+</script>

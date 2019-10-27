@@ -11,73 +11,22 @@ var routes = [
     url: './pages/about.html',
     name: 'about',
   },
-  // Free videos
   {
-    path: '/free-videos/',
-    url: './pages/free-videos.html',
-    name: 'free-videos',
-  },
-  // Free videos
-  {
-    path: '/watch-free-video/',
-    url: './pages/watch-free-video.html',
-    name: 'watch-free-video',
-  },
-  // Premium Videos
-  {
-    path: '/premium-videos/',
-    url: './pages/premium-videos.html',
-    name: 'premium-videos',
-  },
-  // Right Panel pages
-  {
-    path: '/panel-right-1/',
-    content: '\
-      <div class="page">\
-        <div class="navbar">\
-          <div class="navbar-inner sliding">\
-            <div class="left">\
-              <a href="#" class="link back">\
-                <i class="icon icon-back"></i>\
-                <span class="if-not-md">Back</span>\
-              </a>\
-            </div>\
-            <div class="title">Panel Page 1</div>\
-          </div>\
-        </div>\
-        <div class="page-content">\
-          <div class="block">\
-            <p>This is a right panel page 1</p>\
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo saepe aspernatur inventore dolorum voluptates consequatur tempore ipsum! Quia, incidunt, aliquam sit veritatis nisi aliquid porro similique ipsa mollitia eaque ex!</p>\
-          </div>\
-        </div>\
-      </div>\
-    ',
+    path: '/tailor-by-age/',
+    url: './pages/tailor-by-age.html',
+    name: 'tailor-by-age',
   },
   {
-    path: '/panel-right-2/',
-    content: '\
-      <div class="page">\
-        <div class="navbar">\
-          <div class="navbar-inner sliding">\
-            <div class="left">\
-              <a href="#" class="link back">\
-                <i class="icon icon-back"></i>\
-                <span class="if-not-md">Back</span>\
-              </a>\
-            </div>\
-            <div class="title">Panel Page 2</div>\
-          </div>\
-        </div>\
-        <div class="page-content">\
-          <div class="block">\
-            <p>This is a right panel page 2</p>\
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo saepe aspernatur inventore dolorum voluptates consequatur tempore ipsum! Quia, incidunt, aliquam sit veritatis nisi aliquid porro similique ipsa mollitia eaque ex!</p>\
-          </div>\
-        </div>\
-      </div>\
-    ',
+    path: '/tailor-by-gender/',
+    url: './pages/tailor-by-gender.html',
+    name: 'tailor-by-gender',
   },
+  {
+    path: '/tailor-by-location/',
+    url: './pages/tailor-by-location.html',
+    name: 'tailor-by-location',
+  },
+
 
   // Components
   {
@@ -203,6 +152,10 @@ var routes = [
   {
     path: '/login-screen-page/',
     componentUrl: './pages/login-screen-page.html',
+  },
+  {
+    path: '/login/',
+    componentUrl: './pages/login.html',
   },
   {
     path: '/menu/',
@@ -541,6 +494,66 @@ var routes = [
   {
     path: '/watch-free-video/:vidId/',
     componentUrl: './pages/watch-free-video.html',
+  },
+
+  {
+    path: '/free-videos/',
+    componentUrl: './pages/free-videos.html',
+  },
+
+
+  {
+    path: '/watch-premium-video/:vidId/',
+    componentUrl: './pages/watch-premium-video.html',
+  },
+
+  {
+    path: '/post/:postId/',
+    componentUrl: './pages/post.html',
+  },
+
+  {
+    path: '/readpost/:postId/',
+    componentUrl: './pages/readpost.html',
+  },
+
+  {
+    path: '/posts/:catId/',
+    componentUrl: './pages/posts.html',
+  },
+
+  {
+    path: '/premium-videos/',
+    componentUrl: './pages/premium-videos.html',
+  },
+
+  {
+    path: '/blog/',
+    componentUrl: './pages/blog.html',
+  },
+
+  {
+    path: '/forum/',
+    componentUrl: './pages/forum.html',
+  },
+
+  {
+    path: '/english-designs/',
+    url: './pages/english-designs.html',
+  },
+
+  {
+    path: '/cultural-designs/',
+    url: './pages/cultural-designs.html',
+  },
+
+  {
+    path: '/designs/',
+    url: './pages/designs.html',
+  },
+  {
+    path: '/tailors/',
+    url: './pages/tailors.html',
   },
 
 

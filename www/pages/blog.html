@@ -5,12 +5,12 @@
   <div class="navbar">
     <div class="navbar-inner sliding">
       <div class="left">
-        <a href="#" class="link back">
+        <a href="/premium-videos/" class="">
           <i class="icon icon-back"></i>
           <span class="if-not-md">Back</span>
         </a>
       </div>
-      <div class="title">Premium Videos</div>
+      <div class="title">Blog Categories</div>
 	  <div class="right">
           <a class="link icon-only">
             <i class="icon f7-icons if-not-md">email<span class="badge color-red">5</span></i>
@@ -20,49 +20,53 @@
 
     </div>
   </div>
-  <div class="page-content">
-     <div style="padding:10px;">
-{{#if videos}}
-      
-          {{#each videos}}
-		  <div class="card demo-card-header-pic">
-			  <div style="background-image:url(https://cdn.framework7.io/placeholder/nature-1000x600-3.jpg)" valign="bottom" class="card-header"></div>
-			  <div class="card-content card-content-padding">
-				<p style="font-size:18px">{{this.name}}</p>
-				<p>{{this.description}}</p>
-			  </div>
-			  <div class="card-footer"><a href="#" class="link"></a><a href="/watch-premium-video/{{this.id}}/" class="link">Watch Video <i style="font-size:10px;" class="icon icon-forward"></i></a></div>
-		   </div>
-		   <br>
-		   
-		   
 
-          {{/each}}
+
+
+    <div class="page-content">
+      <div class="list">
+ {{#if categories}}
+        <ul>
+      
+          {{#each categories}}         
+		  <li>
+            <div class="item-content">
+              <div class="item-media"><i class="icon icon-f7"></i></div>
+              <div class="item-inner">
+                <div class="item-title"><a href="/posts/{{this.id}}/">{{this.catname}}</a></div>
+                <div class="item-after"><span class="badge">0</span></div>
+              </div>
+            </div>
+          </li>
+         {{/each}}
+        </ul>
        
 {{else}}
       <!-- Otherwise show preloader -->
       <div class="block block-strong text-align-center">
 	  <br>
+	  <br>
+	  <br>
         <div class="preloader"></div>
 	  <br>
+	  <br>
+	  <br>
       </div>
-{{/if}}	    
-
-
-	</div>
-</div>
+{{/if}}	 		 
+      </div>
+    </div>
 </template>
 <script>
   return {
     data: function () {
       return {
-        videos: null,
+        categories: null,
       }
     },
     on: {
       pageInit: function () {
         var self = this;
-		var url = mainURL+'?request=freevideos';
+		var url = mainURL + '?request=blogcat';
         var app = self.$app;
         app.request.get(url, function (data)  {
 		console.log(data);
@@ -70,10 +74,13 @@
 		console.log(data);
 			
 			self.$setState({
-			  videos: data.videos,
+			  categories: data.categories,
 			});
 		  });
      },
     },
   };
 </script>
+
+
+

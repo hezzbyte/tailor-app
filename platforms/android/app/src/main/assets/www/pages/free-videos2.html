@@ -16,7 +16,7 @@
       {{#if video}}
       <!-- Show user list when it is loaded -->
 	  <iframe src="https://player.vimeo.com/video/{{video.videoid}}" width="100%" height="250" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>  
-      <div class="block"><h3>{{video.name}}</h3><p>{{video.description}}</p></div>
+      <div class="block"><p>{{video.description}}</p></div>
       {{else}}
       <!-- Otherwise show preloader -->
       <div class="block block-strong text-align-center">
@@ -42,7 +42,7 @@
     on: {
       pageInit: function () {
         var self = this;
-		var url = mainURL+'?request=freevideo&vidId=' + this.$route.params.vidId;
+		var url = 'http://tailorfitapp/index.php?request=freevideo&vidId=' + this.$route.params.vidId;
         var app = self.$app;
         app.request.get(url, function (video)  {
 		console.log(video);
