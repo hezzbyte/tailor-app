@@ -65,7 +65,7 @@
 		var url = mainURL+'?request=posts&category=' + this.$route.params.catId;
 ;
         var app = self.$app;
-        app.request.get(url, function (data)  {
+        app.request.post(url, function (data)  {
 		console.log(data);
 		data = JSON.parse(data); 
 		console.log(data);
