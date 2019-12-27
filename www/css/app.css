@@ -40,12 +40,14 @@
   font-style: normal;
   font-weight: 400;
   src: url("../fonts/Framework7Icons-Regular.eot");
-  src: url("../fonts/Framework7Icons-Regular.woff2") format("woff2"),
-       url("../fonts/Framework7Icons-Regular.woff") format("woff"),
-       url("../fonts/Framework7Icons-Regular.ttf") format("truetype");
+  src: local('Framework7 Icons'),
+     local('Framework7Icons-Regular'),
+     url("../fonts/Framework7Icons-Regular.woff2") format("woff2"),
+     url("../fonts/Framework7Icons-Regular.woff") format("woff"),
+     url("../fonts/Framework7Icons-Regular.ttf") format("truetype");
 }
 
-.f7-icons {
+.f7-icons, .framework7-icons {
   font-family: 'Framework7 Icons';
   font-weight: normal;
   font-style: normal;
@@ -64,11 +66,12 @@
   -moz-font-feature-settings: "liga=1";
   -moz-font-feature-settings: "liga";
   font-feature-settings: "liga";
-  text-align: center;
 }
+
+
 body{
 	font-family: 'Open Sans', sans-serif !important;
-	font-weight:600;
+	font-weight:400;
 	letter-spacing:0em;
 }
 .demo-list-icon, .icon-f7 {
@@ -699,21 +702,102 @@ code {
 	margin-right:15px;
 	display:inline-block;
 }
+
+.accttp .row{
+	margin-bottom:10px;
+}
+.accttp a{
+	color:#fff !important;
+	font-weight:400;
+	font-size:18px;
+}
+.accttp button{
+	text-align:center;
+	color:#fff;
+	text-transform: none;
+	font-weight:400;
+	height:75px;
+	background-image: linear-gradient(45deg, #667eea 0%, #1f73f1 100%);
+	padding:12px 0;
+	line-height:16px;
+}
+
+.accttp button i{
+	display:block;
+	font-size:26px;
+	font-weight:400;
+	color:#fff;
+	display: inline-flex;
+}
+
+.acctbt1 .row{
+	margin-bottom:10px;
+}
+.acctbt1 a{
+	color:#fff !important;
+	font-weight:400;
+	font-size:18px;
+}
+.acctbt1 button{
+	text-align:center;
+	color:#333;
+	text-transform: none;
+	font-weight:400;
+	height:85px;
+	line-height:22px;
+	background-color:#fff;
+}
+
+.acctbt1 button i{
+	font-size:16px;
+	font-weight:400;
+	color:#ab72f2;
+	margin:10px;
+	display: inline-flex;
+    vertical-align: middle;	
+}
+
+.acctbt .row{
+	margin-bottom:10px;
+}
+.acctbt a{
+	color:#fff !important;
+	font-weight:400;
+	font-size:18px;
+}
+.acctbt button{
+	text-align:left;
+	color:#333;
+	text-transform: none;
+	font-weight:400;
+	height:45px;
+	background-color:#fff;
+}
+
+.acctbt button i{
+	font-size:16px;
+	font-weight:400;
+	color:#ab72f2;
+	margin:10px;
+	display: inline-flex;
+    vertical-align: middle;	
+}
+
 .homebt a{
 	color:#fff !important;
-	font-weight:900;
+	font-weight:600;
 }
 .homebt button{
 	text-align:left;
 	color:#fff;
 	text-transform: none;
 	background-color:#ab72f2;
-	font-weight:900;
+	font-weight:400;
 	height:45px;
 }
 .homebt button i{
 	font-size:16px;
-	font-weight:600;
+	font-weight:400;
 	color:#fff;
 	margin:10px;
 	display: inline-flex;
@@ -722,17 +806,17 @@ code {
 
 .homebt1 button{
 	text-align:center;
-	color:#111;
+	color:#333;
 	padding:20px 0 5px;
 	height:auto; 
-	color:#fff;
-	font-weight:600;
-	background-image: linear-gradient(to bottom, #f4e4fc, #ab72f2);
-}
+	font-weight:400;
+	background-image: linear-gradient(to bottom, #fff, #fefefe);
+
+	}
 .homebt1 button i{
-	font-size:32px;
-	font-weight:600;
-	color:#fff;
+	font-size:40px;
+	font-weight:400;
+	color:#333;
 	display: block;	
 }
 
@@ -817,3 +901,13 @@ h2.vidt{
 		color:#333;
 		font-weight:600;
 	}
+.red{color:red}
+.green{color:green}
+.text-center{text-align:center}
+.text-left{text-align:left}
+.text-right{text-align:right}
+.prprice{display: block; 
+	text-align:center;
+	font-weight:700;
+
+}

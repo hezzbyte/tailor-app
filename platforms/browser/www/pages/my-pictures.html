@@ -1,0 +1,120 @@
+<!-- Wappler include framework7_4="local" -->
+<template>
+<div class="page">
+        <div class="navbar">
+          <div class="navbar-inner">
+		  <div class="left">
+			  <a href="/account/" class="link">
+			  <i class="icon icon-back"></i>
+			  <span class="if-not-md">Back</span>
+			</a>
+		  </div>
+		<div class="title">My Pictures</div>
+
+	  <div class="right">
+          <a class="link icon-only">
+            <i class="icon f7-icons if-not-md">person_round_fill</i>
+            <i class="icon material-icons md-only">person</i>
+          </a>
+          <a class="link icon-only">
+            <i class="icon f7-icons if-not-md">email<span class="badge color-red">5</span></i>
+            <i class="icon material-icons md-only">email<span class="badge color-red">5</span></i>
+          </a>
+        </div>
+	  </div>
+	</div>
+
+    <div class="page-content" style="background-color:#eee">
+	
+ {{#if photos}}
+			
+	<div class="list">
+
+	
+		<div class="block accttp">
+		  <div class="row text-center">
+		  {{#each photos}}
+			<div class="prod1 col-50">
+				<div class="pdimg"><a href="#" @click="openPopupDark" ><img src="{{this.url}}" width="80%"></a><br>{{this.caption}}</div>
+			</div>			 
+			{{/each}}
+	 
+		  </div>			 
+
+		</div>
+			
+	
+			
+    </div>
+	
+	
+     
+{{else}}
+      <!-- Otherwise show preloader -->
+      <div class="text-align-center">
+	  <br>
+	  <br>
+	  <br>
+        <div class="preloader"></div>
+	  <br>
+	  <br>
+	  <br>
+      </div>
+{{/if}}	 		 
+    </div>
+</template>
+<script>
+  return {
+    data: function () {
+      return {
+        photos: [
+          {
+            url: 'img/beach.jpg',
+            caption: 'Amazing beach in Goa, India'
+          },
+		  
+          {
+            url: 'img/lock.jpg',
+            caption: 'This is awesome'
+          },
+		  
+          {
+            url: 'http://placekitten.com/1024/1024',
+            caption: 'Another nice image here'
+          },
+          {
+            url: 'img/monkey.jpg',
+            caption: 'I met this monkey in Chinese mountains'
+          },
+          {
+            url: 'img/mountains.jpg',
+            caption: 'Beautiful mountains in Zhangjiajie, China'
+          }
+        ],
+      }
+    },
+    methods: {
+      openPopupDark: function () {
+        const self = this;
+        self.popupDark.open();
+      },
+    },
+    on: {
+      pageInit: function () {
+        const self = this;
+        // Create PBs when page init
+	
+        self.popupDark = self.$app.photoBrowser.create({
+          photos: self.photos,
+          type: 'popup',
+          theme: 'dark',
+        });
+      },
+      pageBeforeRemove: function () {
+        const self = this;
+        // Destroy PBs on page remove
+        self.popupDark.destroy();
+      },
+    }
+  };
+</script>

@@ -1,0 +1,119 @@
+<!-- Wappler include framework7_4="local" -->
+<template>
+<div class="page">
+        <div class="navbar">
+          <div class="navbar-inner">
+		  <div class="left">
+			  <a href="/account/" class="link">
+			  <i class="icon icon-back"></i>
+			  <span class="if-not-md">Back</span>
+			</a>
+		  </div>
+		<div class="title">My Products</div>
+
+	  <div class="right">
+          <a class="link icon-only">
+            <i class="icon f7-icons if-not-md">person_round_fill</i>
+            <i class="icon material-icons md-only">person</i>
+          </a>
+          <a class="link icon-only">
+            <i class="icon f7-icons if-not-md">email<span class="badge color-red">5</span></i>
+            <i class="icon material-icons md-only">email<span class="badge color-red">5</span></i>
+          </a>
+        </div>
+	  </div>
+	</div>
+
+	
+
+
+    <div class="page-content" style="background-color:#eee">
+	
+ {{#if details}}
+			
+		
+ <div class="list">
+
+		
+			
+	
+			<div class="block accttp">
+			  <div class="row text-center">
+				<div class="prod1 col-50">
+					<div class="pdimg"><img src="img/product.jpg" width="80%"></div>
+					<div class="pdtxt">Nice cotton shirt<strong class="prprice">N230,000</strong></div>
+				</div>			 
+		 
+				<div class="prod1 col-50">
+					<div class="pdimg"><img src="img/product.jpg" width="80%"></div>
+					<div class="pdtxt">Nice cotton shirt<strong class="prprice">N230,000</strong></div>
+				</div>			 
+		 
+				<div class="prod1 col-50">
+					<div class="pdimg"><img src="img/product.jpg" width="80%"></div>
+					<div class="pdtxt">Nice cotton shirt<strong class="prprice">N230,000</strong></div>
+				</div>			 
+		 
+				<div class="prod1 col-50">
+					<div class="pdimg"><img src="img/product.jpg" width="80%"></div>
+					<div class="pdtxt">Nice cotton shirt<strong class="prprice">N230,000</strong></div>
+				</div>			 
+		 
+				<div class="prod1 col-50">
+					<div class="pdimg"><img src="img/product.jpg" width="80%"></div>
+					<div class="pdtxt">Nice cotton shirt<strong class="prprice">N230,000</strong></div>
+				</div>			 
+		 
+			  </div>			 
+
+			 			 
+	 
+
+			 </div>
+			
+	
+			
+      </div>
+	
+	
+     
+{{else}}
+      <!-- Otherwise show preloader -->
+      <div class="text-align-center">
+	  <br>
+	  <br>
+	  <br>
+        <div class="preloader"></div>
+	  <br>
+	  <br>
+	  <br>
+      </div>
+{{/if}}	 		 
+    </div>
+</template>
+<script>
+  return {
+    data: function () {
+      return {
+        details: null,
+      }
+    },
+    on: {
+      pageInit: function () {
+        var self = this;
+		var url = mainURL + '?request=forumcat';
+        var app = self.$app;
+        app.request.post(url, function (data)  {
+		
+		data = JSON.parse(data); 			
+			self.$setState({
+			  details: data.categories,
+			});
+		  });
+     },
+    },
+  };
+</script>
+
+
+

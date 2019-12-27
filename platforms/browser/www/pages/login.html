@@ -2,15 +2,10 @@
 <template>
   <div class="page no-toolbar no-navbar no-swipeback">
     <div class="page-content login-screen-content">
-	  <br>
-	  <br>
-	  <br>
+
 	  <div class="login-view">
-		  <div class="login-screen-title">LOGIN</div>
-		  <br>
-		  <br>
-		  <br>
-		  <br>
+	  <img src="img/img1.jpg" style="max-width:100%">
+	
 		  <form>
 			<div class="list">
 			  <ul>
@@ -18,8 +13,7 @@
 				  <div class="item-inner">
 					<div class="item-title item-label">Username</div>
 					<div class="item-input-wrap">
-					  <input type="text" placeholder="" id="demo-username-2" class="input-with-value">
-					  <span class="input-clear-button"></span>
+					  <input type="text" name="username">
 					</div>
 				  </div>
 				</li>
@@ -27,7 +21,7 @@
 				  <div class="item-inner">
 					<div class="item-title item-label">Password</div>
 					<div class="item-input-wrap">
-					  <input type="password" placeholder="" id="demo-password-2" class="">
+					  <input type="password" name="password">
 					</div>
 				  </div>
 				</li>
@@ -35,7 +29,8 @@
 			</div>
 			<div class="block">
 			  <div class="row">
-				<a href="#" class="col button button-outline" @click="signIn">Login</a>
+			  <div class="loginStat"></div>
+				<a href="#" class="col button button-fill" @click="signIn">Login</a>
 			  </div>
 			</div>
 
@@ -47,9 +42,7 @@
 	  </div>
 	  
 	  <div class="register-view hidden">
-		  <div class="login-screen-title">REGISTER</div>
-		  <br>
-		  <br>
+	  <img src="img/img5.jpg" style="max-width:100%">
 		  <form>
 			<div class="list">
 			  <ul>
@@ -57,8 +50,7 @@
 				  <div class="item-inner">
 					<div class="item-title item-label">Full Name</div>
 					<div class="item-input-wrap">
-					  <input type="text" placeholder="" id="demo-username-2" class="input-with-value">
-					  <span class="input-clear-button"></span>
+					  <input type="text"  name="name" class="input-with-value">
 					</div>
 				  </div>
 				</li>
@@ -66,46 +58,87 @@
 				  <div class="item-inner">
 					<div class="item-title item-label">Email</div>
 					<div class="item-input-wrap">
-					  <input type="text" placeholder="" id="demo-username-2" class="input-with-value">
-					  <span class="input-clear-button"></span>
+					  <input type="text"  name="email" class="input-with-value">
 					</div>
 				  </div>
 				</li>
-				<li class="item-content item-input item-input-with-value">
-				  <div class="item-inner">
-					<div class="item-title item-label">Username</div>
-					<div class="item-input-wrap">
-					  <input type="text" placeholder="" id="demo-username-2" class="input-with-value">
-					  <span class="input-clear-button"></span>
-					</div>
-				  </div>
-				</li>
-				<li class="item-content item-input item-input-with-value">
-				  <div class="item-inner">
-					<div class="item-input-wrap">
-					  <input type="text" placeholder="" id="demo-username-2" class="input-with-value">
-					  <span class="input-clear-button">dd</span>ddd
-					</div>
-				  </div>
-				</li>
-				<li class="item-content item-input">
-				  <div class="item-inner">
-					<div class="item-title item-label">Password</div>
-					<div class="item-input-wrap">
-					  <input type="password" placeholder="" id="demo-password-2" class="">
-					</div>
-				  </div>
-				</li>
+				
 			  </ul>
 			</div>
 			<div class="block">
 			  <div class="row">
-				<a href="#" class="col button button-outline" @click="signIn">Register</a>
+				<a href="#" class="col button button-fill" @click="switchView3">Next</a>
 			  </div>
 			</div>
 
 			<div class="list">
 			  <div class="block-footer">Have account? <a href="#"  @click="switchView2">Login</a>.</div>
+			</div>
+		  </form>
+	  </div>
+		
+	  <div class="register-view1 hidden">
+	  <img src="img/img2.jpg" style="max-width:100%">
+		  <form>
+			<div class="list">
+			  <ul>
+				<li class="item-content item-input item-input-with-value">
+				  <div class="item-inner">
+					<div class="item-title item-label">Username</div>
+					<div class="item-input-wrap">
+					  <input type="text"  name="username" class="input-with-value">
+					</div>
+				  </div>
+				</li>
+				<li class="item-content item-input item-input-with-value">
+				  <div class="item-inner">
+					<div class="item-title item-label">Password</div>
+					<div class="item-input-wrap">
+					  <input type="password"  name="password" class="input-with-value">
+					</div>
+				  </div>
+				</li>
+				
+			  </ul>
+			</div>
+			<div class="block">
+			  <div class="row">
+			  <div class="regStat"></div>
+				<a href="#" class="col button button-fill" @click="register" id="register-button">Register</a>
+			  </div>
+			</div>
+
+			<div class="list">
+			  <div class="block-footer">Have account? <a href="#"  @click="switchView2">Login</a>.</div>
+			</div>
+		  </form>
+	  </div>
+		
+	  <div class="email-verify hidden">
+	  <img src="img/img3.jpg" style="max-width:100%">
+		  <form>
+			<div class="list">
+			  <ul>
+				<li class="item-content item-input item-input-with-value">
+				  <div class="item-inner">
+					<div class="item-title item-label">Enter Code</div>
+					<div class="item-input-wrap">
+					  <input type="text"  name="mailcode" class="input-with-value">
+					</div>
+				  </div>
+				</li>
+				
+			  </ul>
+			</div>
+			<div class="block">
+			  <div class="row">
+			  <div class="verifyStat"></div>
+				<a href="#" class="col button button-fill" @click="verifyMail" >Submit</a>
+			  </div>
+			</div>
+
+			<div class="list">
+			  <div class="block-footer">Go to <a href="#"  @click="switchView2">Login</a>.</div>
 			</div>
 		  </form>
 	  </div>
@@ -117,7 +150,7 @@
 <script>
   return {
     methods: {
-      signIn: function () {
+      signIn1: function () {
         var $ = this.$;
         var app = this.$app;
         var router = this.$router;
@@ -128,10 +161,60 @@
           router.back();
         })
       },
+      signIn: function () {  
+        var $ = this.$;
+        var app = this.$app;
+        var router = this.$router;
+	  var username = $('.login-view [name="username"]').val();
+	  var password = $('.login-view [name="password"]').val();
+	  	  
+		if(username != '' && password != ''){
+		app.preloader.show();
+		app.request.post(mainURL, {request: 'login', user: username, pass: password}, function (data) {
+		data = JSON.parse(data);
+		if(data.status == 'failed'){
+		$('.loginStat').html('<span class="red">'+ data.error +'</span>');	
+		app.preloader.hide();
+		}
+		else if(data.status == 'success'){
+		$('.loginStat').html('<span class="red">Login successful!</span>');	
+
+		localStorage.loginstatus = "true";
+		localStorage.appFullName = data.fullName;
+		localStorage.appWallet = data.wallet;
+		localStorage.appUserName = data.userName;
+		localStorage.appUserEmail = data.email;
+		localStorage.appUserPhone = data.phone;
+		localStorage.appUserID = data.userID;
+		
+		
+		// Close login screen
+        app.loginScreen.close();	
+		$('.loginStat').html('');
+		app.preloader.hide();
+		router.back();
+		loadContent();
+
+
+
+	}
+	  else{	
+		$('.loginStat').html('<span class="red">Error! Unknown Error!</span>');	
+		app.preloader.hide();
+	} 
+	  
+	}, function(){
+		$('.loginStat').html('<span class="red">Error! No internet connection.</span>');	
+		app.preloader.hide();
+	}, {dataType: 'json'});
+
+	}
+	},
       switchView1: function () {
         var $ = this.$;
         var app = this.$app;
 		$('.login-view').hide();
+		$('.register-view1').hide();
 		$('.register-view').show();
       
       },
@@ -139,7 +222,64 @@
         var $ = this.$;
         var app = this.$app;
 		$('.register-view').hide();
+		$('.register-view1').hide();
 		$('.login-view').show();
+      
+      },
+      switchView3: function () {
+        var $ = this.$;
+        var app = this.$app;
+		$('.register-view').hide();
+		$('.register-view1').show();
+      
+      },
+      verifyMail: function () {
+        var $ = this.$;
+        var app = this.$app;
+		
+      
+      },
+      register: function () {
+	  
+		var username = $('.register-view1 [name="username"]').val();
+		var password = $('.register-view1 [name="password"]').val();
+		var email = $('.register-view [name="email"]').val();
+		var name1 = $('.register-view [name="name"]').val();
+		app.preloader.show();
+
+		if(username != '' && password != '' && email != '' && name1 != ''){
+
+		app.request.post(mainURL, {request: 'register', user: username, mail: email, name: name1, pass: password}, function (data) {
+		data = JSON.parse(data);
+		if(data.status == 'failed'){
+		$('.regStat').html('<span class="red">'+ data.error +'</span>');	
+
+		app.preloader.hide();
+		}
+		else if(data.status == 'success'){
+		//redirect to email verify
+
+		localStorage.veriMail = email;
+		$('#reg-screen [name="username"]').val('');
+		$('#reg-screen [name="password"]').val('');
+		$('.verifyStat').html('<span class="green">'+ data.message +'</span>');
+
+		$('.register-view1').hide();
+		$('.email-verify').show();
+		app.preloader.hide();	
+
+		}
+		else{	
+		$$('.regStat').html('<span class="red">Error! Unknown Error!</span>');	
+		app.preloader.hide();
+		} 
+
+		}, function(){
+		$('.regStat').html('<span class="red">Error! No internet connection.</span>');	
+		app.preloader.hide();
+		}, {dataType: 'json'});
+		}
+
       
       }
     }

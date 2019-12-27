@@ -23,7 +23,7 @@ var app = new Framework7({
     },
   },
   	view: {
-		pushState :false,
+		pushState :true,
 		stackPages: true,            
 	},
   routes: routes,
@@ -57,5 +57,18 @@ function gotopage($url){
 var mainURL = 'https://www.coquitech.website/tailorfit/app/';
 
 
+
+$(document).on('page:init', function (e) {
+});
+
+
+//Load user details
+function loadContent(){
+	$('.appFullName').text(localStorage.appFullName);
+	$('.appUserName').text(localStorage.appUserName);
+	$('.accountLink').text('Profile');
+	//$('.appUserEmail').text(localStorage.appUserEmail);
+	//$('.appUserPhone').text(localStorage.appUserPhone);
+}
 
 
