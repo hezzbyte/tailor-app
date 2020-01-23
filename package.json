@@ -11,13 +11,15 @@
     "license": "Apache-2.0",
     "dependencies": {
         "cordova-browser": "^5.0.4",
+        "cordova-plugin-privacyscreen": "^0.4.0",
         "cordova-plugin-splashscreen": "^5.0.3",
         "cordova-plugin-whitelist": "1"
     },
     "cordova": {
         "plugins": {
             "cordova-plugin-whitelist": {},
-            "cordova-plugin-splashscreen": {}
+            "cordova-plugin-splashscreen": {},
+            "cordova-plugin-privacyscreen": {}
         },
         "platforms": [
             "browser"

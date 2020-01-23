@@ -23,16 +23,38 @@
           <div class="item-inner">
             <div class="item-title item-label">Image</div>
             <div class="item-input-wrap">
-              <input type="file" placeholder="Image">
+              <input type="file" id="pgfile" accept="image/*;capture=camera">
               <span class="input-clear-button"></span>
             </div>
           </div>
         </li>
+		 
+		 <li class="item-content item-input item-input-outline">
+          <div class="item-inner">
+            <div class="item-title item-label">Category</div>
+            <div class="item-input-wrap">
+              <select name="pgcategory">
+				<option value=""></option>
+				<option value="1">Category 1
+				</option>
+				<option value="2">Category 2
+				</option>
+				<option value="3">Category 3
+				</option>
+				<option value="4">Category 4
+				</option>
+              </select>
+              <span class="input-clear-button"></span>
+            </div>
+          </div>
+        </li>
+
+
         <li class="item-content item-input item-input-outline">
           <div class="item-inner">
             <div class="item-title item-label">Description</div>
             <div class="item-input-wrap">
-			  <textarea></textarea>
+			  <textarea name="pgdescription"></textarea>
               <span class="input-clear-button"></span>
 			  
             </div>
@@ -43,10 +65,11 @@
 
       </ul>
     </div>
+	<div class="stats"></div>
 
     <div class="block">
       <p class="row">
-        <button class="col button button-raised button-fill">Submit</button>
+        <button class="col button button-raised button-fill"  @click="newimage">Submit</button>
       </p>
 
     </div>
@@ -54,3 +77,64 @@
 	</div>
 </div>
 </template>
+<script>
+  return {
+    methods: {
+	
+	newimage: function () {
+	  
+		var pgcategory = $('[name="pgcategory"]').val();
+		var pgdescription = $('[name="pgdescription"]').val();
+		var pgimage = document.getElementById('pgfile').files[0]; 
+
+		var FData = new FormData();
+		FData.append('file',pgimage);    
+		FData.append('request','newimage');      
+		FData.append('category',pgcategory);      
+		FData.append('description',pgdescription);      
+
+
+		if(pgcategory != '' && pgdescription != ''){
+		app.preloader.show();
+
+		app.request.post(mainURL, FData, function (data) {
+		
+		console.log(data);
+		
+		data = JSON.parse(data);
+		
+		console.log(data);
+		
+		if(data.status == 'failed'){
+		
+		$('.stats').html('<span class="red">'+ data.error +'</span>');	
+
+		app.preloader.hide();
+		}
+		else if(data.status == 'success'){
+		$('[name="pgcategory"]').val('');
+		$('[name="pgdescription"]').val('');
+		$('#pgfile').val('');
+		
+		
+		$('.stats').html('<span class="green">'+ data.message +'</span>');	
+		app.preloader.hide();
+
+		}
+		else{	
+		$$('.stats').html('<span class="red">Error! Unknown Error!</span>');	
+		app.preloader.hide();
+		} 
+
+		}, function(){
+		$('.stats').html('<span class="red">Error! No internet connection.</span>');	
+		app.preloader.hide();
+		}, {dataType: 'json'});
+		
+		}
+
+      
+      }
+    }
+  }
+</script>

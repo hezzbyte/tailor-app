@@ -4,6 +4,12 @@ var $ = Dom7;
 // Theme
 var theme = 'auto';
 
+$(document).on('page:init', function (e) {
+	if(localStorage.loginstatus == 'true'){	
+		loadContent();
+	}
+});
+
 
 // Init App
 var app = new Framework7({
@@ -65,10 +71,21 @@ $(document).on('page:init', function (e) {
 //Load user details
 function loadContent(){
 	$('.appFullName').text(localStorage.appFullName);
-	$('.appUserName').text(localStorage.appUserName);
-	$('.accountLink').text('Profile');
-	//$('.appUserEmail').text(localStorage.appUserEmail);
-	//$('.appUserPhone').text(localStorage.appUserPhone);
+	//$('.appUserName').text(localStorage.appUserName);
+	$('.accountLink1').show();
+	$('.accountLink').hide();
+	$('.lgot').show();
 }
 
+function logout(){
+	$('.lgot').hide();
+	$('.appFullName').text('Esteem User');
+	//$('.appUserName').text('');
+	$('.accountLink').show();
+	$('.accountLink1').hide();
+	$('.lgot').hide();
+
+  localStorage.loginstatus = 'false';
+  app.dialog.alert('Successfully logged out');
+}
 

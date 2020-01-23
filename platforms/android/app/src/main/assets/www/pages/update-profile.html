@@ -9,37 +9,25 @@
           <span class="if-not-md">Back</span>
         </a>
       </div>
-      <div class="title">New Post</div>
+      <div class="title">Update Profile</div>
     </div>
   </div>
   <div class="page-content">
-
-	<div class="block-title">Write an article to be posted in our forum.</div>
+{{#if details}}
+	<div class="block-title">Update your personal details.</div>
     <div class="list no-hairlines-md">
       <ul>
-        <li class="item-content item-input item-input-outline">
+	    <li class="item-content item-input item-input-outline">
           <div class="item-inner">
             <div class="item-title item-label">Title</div>
             <div class="item-input-wrap">
-              <input type="text">
-              <span class="input-clear-button"></span>
-            </div>
-          </div>
-        </li>
-
-        <li class="item-content item-input item-input-outline">
-          <div class="item-inner">
-            <div class="item-title item-label">Category</div>
-            <div class="item-input-wrap">
-              <select>
+              <select name="ptitle">
 				<option></option>
-				<option>Category 1
+				<option>Mr
 				</option>
-				<option>Category 1
+				<option>Miss
 				</option>
-				<option>Category 1
-				</option>
-				<option>Category 1
+				<option>Mrs
 				</option>
               </select>
               <span class="input-clear-button"></span>
@@ -49,16 +37,34 @@
 
         <li class="item-content item-input item-input-outline">
           <div class="item-inner">
-            <div class="item-title item-label">Image</div>
+            <div class="item-title item-label">Full Name</div>
             <div class="item-input-wrap">
-              <input type="file" placeholder="Image">
+              <input type="text" name="pname" value="{{details.name}}">
               <span class="input-clear-button"></span>
             </div>
           </div>
         </li>
+
         <li class="item-content item-input item-input-outline">
           <div class="item-inner">
-            <div class="item-title item-label">Content</div>
+            <div class="item-title item-label">Gender</div>
+            <div class="item-input-wrap">
+              <select name="">
+
+				<option>Male
+				</option>
+				<option>Female
+				</option>
+              </select>
+              <span class="input-clear-button"></span>
+            </div>
+          </div>
+        </li>
+		
+		
+        <li class="item-content item-input item-input-outline">
+          <div class="item-inner">
+            <div class="item-title item-label">Address</div>
             <div class="item-input-wrap">
 			  <textarea></textarea>
               <span class="input-clear-button"></span>
@@ -74,11 +80,41 @@
 
     <div class="block">
       <p class="row">
-        <button class="col button button-raised button-fill">Submit</button>
+        <button class="col button button-raised button-fill" @click="upprofile">Submit</button>
       </p>
 
     </div>
-
+{{else}}
+      <!-- Otherwise show preloader -->
+      <div class="block block-strong text-align-center">
+	  <br>
+        <div class="preloader"></div>
+	  <br>
+      </div>
+{{/if}}	    
 	</div>
 </div>
 </template>
+<script>
+  return {
+      data: function () {
+      return {
+        details: null,
+      }
+    },
+    on: {
+      pageInit: function () {
+        var self = this;
+		var url = mainURL+'?request=pdetails';
+        var app = self.$app;
+        app.request.get(url, function (details)  {
+		console.log(details);
+			details = JSON.parse(details);    
+			self.$setState({
+			  details: details,
+			});
+		  });
+     },
+    }
+	}
+</script>

@@ -170,6 +170,10 @@ var routes = [
     componentUrl: './pages/new-post.html',
   },
   {
+    path: '/update-profile/',
+    componentUrl: './pages/update-profile.html',
+  },
+  {
     path: '/new-product/',
     componentUrl: './pages/new-product.html',
   },

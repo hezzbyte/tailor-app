@@ -44,9 +44,11 @@
                 <a href="#" class="panel-close">Profile</a>
               </li>
               <li>
-                <a href="#" class="panel-close">Settings
-				</a>
+                <a href="#" class="panel-close">Settings</a>
               </li>
+              <li class="lgot" style="display:none">
+				<a href="/" class="logout" onclick="logout();">Logout</a>              
+			  </li>
             </ul>
           </div>
           
@@ -89,9 +91,11 @@
 		  <h2 class="intoname">Hello, <span class="appFullName">Esteem User</span></h2>
           
 		  <span class="accountLink">
-		  <a href="/login/" class="user-login"> Login to your account</a>
-		  <br>
-		  <a href="/account/" class="user-login"> My Account</a>
+			<a href="/login/" class="user-login"> Login to your account</a>
+		  </span>
+          
+		  <span class="accountLink1" style="display:none">
+			<a href="/account/" class="user-login"> My Account</a>		  
 		  </span>
           
 		  </div>
@@ -128,7 +132,7 @@
   
           <div class="block-title searchbar-found">Featured</div>
 			<div class="feature_sect">
-					<a href="/icons/"><img src="img/ad1.jpg"></a>
+					<a href="/#/" ><img src="img/ad1.jpg"></a>
 					<a href="/buttons/"><img src="img/ad.png"></a>
 					<a href="/page-loader-component/Jimmy/1/NameOfpost/33/"><img src="img/ad1.png"></a>
 					<img src="img/ad2.jpg">

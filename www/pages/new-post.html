@@ -21,7 +21,7 @@
           <div class="item-inner">
             <div class="item-title item-label">Title</div>
             <div class="item-input-wrap">
-              <input type="text">
+              <input type="text" name="nptitle">
               <span class="input-clear-button"></span>
             </div>
           </div>
@@ -31,15 +31,15 @@
           <div class="item-inner">
             <div class="item-title item-label">Category</div>
             <div class="item-input-wrap">
-              <select>
-				<option></option>
-				<option>Category 1
+              <select name="npcategory">
+				<option value=""></option>
+				<option value="1">Category 1
 				</option>
-				<option>Category 1
+				<option value="2">Category 2
 				</option>
-				<option>Category 1
+				<option value="3">Category 3
 				</option>
-				<option>Category 1
+				<option value="4">Category 4
 				</option>
               </select>
               <span class="input-clear-button"></span>
@@ -51,7 +51,7 @@
           <div class="item-inner">
             <div class="item-title item-label">Image</div>
             <div class="item-input-wrap">
-              <input type="file" placeholder="Image">
+              <input type="file" id="npfile" accept="image/*;capture=camera">
               <span class="input-clear-button"></span>
             </div>
           </div>
@@ -60,7 +60,7 @@
           <div class="item-inner">
             <div class="item-title item-label">Content</div>
             <div class="item-input-wrap">
-			  <textarea></textarea>
+			  <textarea name="npcontent"></textarea>
               <span class="input-clear-button"></span>
 			  
             </div>
@@ -72,9 +72,10 @@
       </ul>
     </div>
 
+		<div class="stats"></div>
     <div class="block">
       <p class="row">
-        <button class="col button button-raised button-fill">Submit</button>
+        <button class="col button button-raised button-fill" @click="newpost">Submit</button>
       </p>
 
     </div>
@@ -82,3 +83,61 @@
 	</div>
 </div>
 </template>
+<script>
+  return {
+    methods: {
+	
+	newpost: function () {
+	  
+		var nptitle = $('[name="nptitle"]').val();
+		var npcategory = $('[name="npcategory"]').val();
+		var npcontent = $('[name="npcontent"]').val();
+		var npimage = document.getElementById('npfile').files[0]; 
+		var FData = new FormData();
+		FData.append('file',npimage);    
+		FData.append('request','newpost');      
+		FData.append('title1',nptitle);      
+		FData.append('category',npcategory);      
+		FData.append('content',npcontent);      
+		
+		 
+		if(nptitle != '' && npcategory != '' && npcontent != ''){
+		app.preloader.show();
+
+		app.request.post(mainURL, FData, function (data) {		
+		data = JSON.parse(data);
+				
+		if(data.status == 'failed'){
+		
+		$('.stats').html('<span class="red">'+ data.error +'</span>');	
+
+		app.preloader.hide();
+		}
+		else if(data.status == 'success'){
+		$('[name="nptitle"]').val('');
+		$('[name="npcategory"]').val('');
+		$('[name="npcontent"]').val('');
+		$('#npfile').val('');
+		
+		
+		$('.stats').html('<span class="green">'+ data.message +'</span>');	
+		app.preloader.hide();
+
+		}
+		else{	
+		$$('.stats').html('<span class="red">Error! Unknown Error!</span>');	
+		app.preloader.hide();
+		} 
+
+		}, function(){
+		$('.stats').html('<span class="red">Error! No internet connection.</span>');	
+		app.preloader.hide();
+		}, {dataType: 'json'});
+		
+		}
+
+      
+      }
+    }
+  }
+</script>

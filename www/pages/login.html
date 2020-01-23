@@ -179,7 +179,8 @@
 		else if(data.status == 'success'){
 		$('.loginStat').html('<span class="red">Login successful!</span>');	
 
-		localStorage.loginstatus = "true";
+		localStorage.loginstatus = 'true';
+		
 		localStorage.appFullName = data.fullName;
 		localStorage.appWallet = data.wallet;
 		localStorage.appUserName = data.userName;

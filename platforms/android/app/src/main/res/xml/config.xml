@@ -12,6 +12,10 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="PrivacyScreenPlugin">
+        <param name="android-package" value="org.devgeeks.privacyscreen.PrivacyScreenPlugin" />
+        <param name="onload" value="true" />
+    </feature>
     <name>Tailor Fit</name>
     <description>
         An application for the tailor/fashion designers community.

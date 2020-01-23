@@ -21,7 +21,7 @@
           <div class="item-inner">
             <div class="item-title item-label">Product name</div>
             <div class="item-input-wrap">
-              <input type="text">
+              <input type="text" name="ppname">
               <span class="input-clear-button"></span>
             </div>
           </div>
@@ -31,15 +31,15 @@
           <div class="item-inner">
             <div class="item-title item-label">Product category</div>
             <div class="item-input-wrap">
-              <select>
-				<option></option>
-				<option>Category 1
+              <select name="ppcategory">
+				<option value=""></option>
+				<option value="1">Category 1
 				</option>
-				<option>Category 1
+				<option value="2">Category 2
 				</option>
-				<option>Category 1
+				<option value="3">Category 3
 				</option>
-				<option>Category 1
+				<option value="4">Category 4
 				</option>
               </select>
               <span class="input-clear-button"></span>
@@ -51,7 +51,7 @@
           <div class="item-inner">
             <div class="item-title item-label">Price</div>
             <div class="item-input-wrap">
-              <input type="text">
+              <input type="text" type="number" name="ppprice">
               <span class="input-clear-button"></span>
             </div>
           </div>
@@ -61,7 +61,7 @@
           <div class="item-inner">
             <div class="item-title item-label">Image</div>
             <div class="item-input-wrap">
-              <input type="file" placeholder="Image">
+              <input type="file" id="ppfile" accept="image/*;capture=camera">
               <span class="input-clear-button"></span>
             </div>
           </div>
@@ -70,7 +70,7 @@
           <div class="item-inner">
             <div class="item-title item-label">Description</div>
             <div class="item-input-wrap">
-			  <textarea></textarea>
+			  <textarea name="ppdescription"></textarea>
               <span class="input-clear-button"></span>
 			  
             </div>
@@ -81,9 +81,12 @@
 
       </ul>
     </div>
+	
+	<div class="stats"></div>
+
     <div class="block">
       <p class="row">
-        <button class="col button button-raised button-fill">Submit</button>
+        <button class="col button button-raised button-fill" @click="newproduct">Submit</button>
       </p>
 
     </div>
@@ -92,3 +95,65 @@
 	</div>
 </div>
 </template>
+<script>
+  return {
+    methods: {
+	
+	newproduct: function () {
+	  
+		var ppname = $('[name="ppname"]').val();
+		var ppcategory = $('[name="ppcategory"]').val();
+		var ppprice = $('[name="ppprice"]').val();
+		var ppdescription = $('[name="ppdescription"]').val();
+		var ppimage = document.getElementById('ppfile').files[0]; 
+
+		var FData = new FormData();
+		FData.append('file',ppimage);    
+		FData.append('request','newproduct');      
+		FData.append('name1',ppname);      
+		FData.append('category',ppcategory);      
+		FData.append('description',ppdescription);      
+		FData.append('price',ppprice);      
+
+
+		if(ppname != '' && ppcategory != '' && ppprice !=  ''){
+		app.preloader.show();
+
+		app.request.post(mainURL, FData, function (data) {
+		
+		data = JSON.parse(data);
+		if(data.status == 'failed'){
+		
+		$('.stats').html('<span class="red">'+ data.error +'</span>');	
+
+		app.preloader.hide();
+		}
+		else if(data.status == 'success'){
+		$('[name="ppname"]').val('');
+		$('[name="ppcategory"]').val('');
+		$('[name="ppprice"]').val('');
+		$('[name="ppdescription"]').val('');
+		$('#ppfile').val('');
+		
+		
+		$('.stats').html('<span class="green">'+ data.message +'</span>');	
+		app.preloader.hide();
+
+		}
+		else{	
+		$$('.stats').html('<span class="red">Error! Unknown Error!</span>');	
+		app.preloader.hide();
+		} 
+
+		}, function(){
+		$('.stats').html('<span class="red">Error! No internet connection.</span>');	
+		app.preloader.hide();
+		}, {dataType: 'json'});
+		
+		}
+
+      
+      }
+    }
+  }
+</script>

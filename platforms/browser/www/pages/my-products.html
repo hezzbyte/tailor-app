@@ -29,7 +29,7 @@
 
     <div class="page-content" style="background-color:#eee">
 	
- {{#if details}}
+ {{#if products}}
 			
 		
  <div class="list">
@@ -39,30 +39,14 @@
 	
 			<div class="block accttp">
 			  <div class="row text-center">
+				{{#each products}}
 				<div class="prod1 col-50">
 					<div class="pdimg"><img src="img/product.jpg" width="80%"></div>
-					<div class="pdtxt">Nice cotton shirt<strong class="prprice">N230,000</strong></div>
+					<div class="pdtxt">{{this.excerpt}}<strong class="prprice">N{{this.price}}</strong></div>
 				</div>			 
-		 
-				<div class="prod1 col-50">
-					<div class="pdimg"><img src="img/product.jpg" width="80%"></div>
-					<div class="pdtxt">Nice cotton shirt<strong class="prprice">N230,000</strong></div>
-				</div>			 
-		 
-				<div class="prod1 col-50">
-					<div class="pdimg"><img src="img/product.jpg" width="80%"></div>
-					<div class="pdtxt">Nice cotton shirt<strong class="prprice">N230,000</strong></div>
-				</div>			 
-		 
-				<div class="prod1 col-50">
-					<div class="pdimg"><img src="img/product.jpg" width="80%"></div>
-					<div class="pdtxt">Nice cotton shirt<strong class="prprice">N230,000</strong></div>
-				</div>			 
-		 
-				<div class="prod1 col-50">
-					<div class="pdimg"><img src="img/product.jpg" width="80%"></div>
-					<div class="pdtxt">Nice cotton shirt<strong class="prprice">N230,000</strong></div>
-				</div>			 
+				{{/each}}
+				
+						 
 		 
 			  </div>			 
 
@@ -95,25 +79,25 @@
   return {
     data: function () {
       return {
-        details: null,
+        products: null,
       }
     },
     on: {
       pageInit: function () {
         var self = this;
-		var url = mainURL + '?request=forumcat';
+		var url = mainURL+'?request=myproducts&category=0';
+;
         var app = self.$app;
         app.request.post(url, function (data)  {
-		
-		data = JSON.parse(data); 			
+		console.log(data);
+		data = JSON.parse(data); 
+		console.log(data);
+			
 			self.$setState({
-			  details: data.categories,
+			  products: data.products,
 			});
 		  });
      },
     },
   };
 </script>
-
-
-
