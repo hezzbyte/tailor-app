@@ -1,6 +1,7 @@
 <!-- Wappler include framework7_4="local" -->
 <template>
   <div class="page no-toolbar no-navbar no-swipeback">
+  <div class="closeauth"><a href="#" @click="closeLogin"><i class="icon material-icons md-only">close</i></a></div>
     <div class="page-content login-screen-content">
 
 	  <div class="login-view">
@@ -161,6 +162,13 @@
           router.back();
         })
       },
+	  closeLogin: function(){
+        var $ = this.$;
+        var app = this.$app;
+        var router = this.$router;
+		app.loginScreen.close();	
+		router.back();
+	  },
       signIn: function () {  
         var $ = this.$;
         var app = this.$app;
