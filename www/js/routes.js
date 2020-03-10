@@ -174,6 +174,10 @@ var routes = [
     componentUrl: './pages/update-profile.html',
   },
   {
+    path: '/update-photo/',
+    componentUrl: './pages/update-photo.html',
+  },
+  {
     path: '/new-product/',
     componentUrl: './pages/new-product.html',
   },

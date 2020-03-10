@@ -30,7 +30,7 @@ var app = new Framework7({
   },
   	view: {
 		pushState :true,
-		stackPages: true,            
+		stackPages: false,            
 	},
   routes: routes,
   popup: {

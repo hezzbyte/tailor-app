@@ -1,0 +1,97 @@
+<!-- Wappler include framework7_4="local" -->
+<template>
+<div class="page">
+  <div class="navbar">
+    <div class="navbar-inner sliding">
+      <div class="left">
+        <a href="/account/" class="link">
+          <i class="icon icon-back"></i>
+          <span class="if-not-md">Back</span>
+        </a>
+      </div>
+      <div class="title">Update profile picture</div>
+    </div>
+  </div>
+  <div class="page-content">
+
+	<div class="block-title">Update your profile image.</div>
+    <div class="list no-hairlines-md">
+      <ul>
+       
+        <li class="item-content item-input item-input-outline">
+          <div class="item-inner">
+            <div class="item-title item-label">Select Image</div>
+            <div class="item-input-wrap">
+              <input type="file" id="npfile" accept="image/*;capture=camera">
+              <span class="input-clear-button"></span>
+            </div>
+          </div>
+        </li>
+       
+
+
+
+      </ul>
+    </div>
+
+		<div class="stats"></div>
+    <div class="block">
+      <p class="row">
+        <button class="col button button-raised button-fill" @click="newpost">Submit</button>
+      </p>
+
+    </div>
+
+	</div>
+</div>
+</template>
+<script>
+  return {
+    methods: {
+	
+	uppic: function () {
+	  
+		var npimage = document.getElementById('npfile').files[0]; 
+		var FData = new FormData();
+		FData.append('file',npimage);    
+		FData.append('request','uppic');      
+		
+		 
+		if(nptitle != '' && npcategory != '' && npcontent != ''){
+		app.preloader.show();
+
+		app.request.post(mainURL, FData, function (data) {		
+		data = JSON.parse(data);
+				
+		if(data.status == 'failed'){
+		
+		$('.stats').html('<span class="red">'+ data.error +'</span>');	
+
+		app.preloader.hide();
+		}
+		else if(data.status == 'success'){
+		$('#npfile').val('');
+		
+		
+		$('.stats').html('<span class="green">'+ data.message +'</span>');
+		
+		app.preloader.hide();
+
+		}
+		else{	
+		$$('.stats').html('<span class="red">Error! Unknown Error!</span>');	
+		app.preloader.hide();
+		} 
+
+		}, function(){
+		$('.stats').html('<span class="red">Error! No internet connection.</span>');	
+		app.preloader.hide();
+		}, {dataType: 'json'});
+		
+		}
+
+      
+      }
+    }
+  }
+</script>
