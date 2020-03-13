@@ -178,6 +178,18 @@ var routes = [
     componentUrl: './pages/update-photo.html',
   },
   {
+    path: '/settings/',
+    componentUrl: './pages/settings.html',
+  },
+  {
+    path: '/message-user/',
+    componentUrl: './pages/message-user.html',
+  },
+  {
+    path: '/users/',
+    componentUrl: './pages/users.html',
+  },
+  {
     path: '/new-product/',
     componentUrl: './pages/new-product.html',
   },

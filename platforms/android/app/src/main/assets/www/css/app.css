@@ -924,3 +924,29 @@ h2.vidt{
 	top:10px;
 	left:10px;
 }
+.r-img{
+	width:70px;
+	height:70px;
+	background-position:center;
+	background-image: url(../img/user.png);
+	background-size:contain;
+	}
+.u-img{
+	width:120px;
+	height:120px;
+	border-radius:50%;
+	background-position:center;
+	background-image: url(../img/user.png);
+	background-size:contain;
+	margin:30px auto 10px;
+	}
+.text-center{
+	text-align:center;
+}
+.msgu{
+	height:70px !important;
+	background-color:#eee !important;
+	font-size:11px !important; 
+}
+	
+	

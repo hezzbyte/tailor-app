@@ -4,30 +4,36 @@
   <div class="navbar">
     <div class="navbar-inner sliding">
       <div class="left">
-        <a href="/account/" class="link">
+        <a href="//" class="link">
           <i class="icon icon-back"></i>
           <span class="if-not-md">Back</span>
         </a>
       </div>
-      <div class="title">Update profile picture</div>
+      <div class="title">User details</div>
     </div>
   </div>
   <div class="page-content">
 
-	<div class="block-title">Update your profile image.</div>
+<div class="u-img"></div>
+<div class="text-center"><strong>Adeyemi Hezekiah</strong></div>
+	<div class="block-title">Message the user</div>
     <div class="list no-hairlines-md">
       <ul>
-       
+
+
+
+
+
         <li class="item-content item-input item-input-outline">
           <div class="item-inner">
-            <div class="item-title item-label">Select Image</div>
+            <div class="item-title item-label">Message</div>
             <div class="item-input-wrap">
-              <input type="file" id="npfile" accept="image/*;capture=camera">
+			  <textarea name="npcontent" class="msgu"></textarea>
               <span class="input-clear-button"></span>
+			  
             </div>
           </div>
         </li>
-       
 
 
 
@@ -37,7 +43,7 @@
 		<div class="stats"></div>
     <div class="block">
       <p class="row">
-        <button class="col button button-raised button-fill" @click="uppic">Submit</button>
+        <button class="col button button-raised button-fill" @click="newpost">Send</button>
       </p>
 
     </div>
@@ -49,12 +55,18 @@
   return {
     methods: {
 	
-	uppic: function () {
+	newpost: function () {
 	  
+		var nptitle = $('[name="nptitle"]').val();
+		var npcategory = $('[name="npcategory"]').val();
+		var npcontent = $('[name="npcontent"]').val();
 		var npimage = document.getElementById('npfile').files[0]; 
 		var FData = new FormData();
 		FData.append('file',npimage);    
-		FData.append('request','uppic');      
+		FData.append('request','newpost');      
+		FData.append('title1',nptitle);      
+		FData.append('category',npcategory);      
+		FData.append('content',npcontent);      
 		
 		 
 		if(nptitle != '' && npcategory != '' && npcontent != ''){
@@ -70,11 +82,13 @@
 		app.preloader.hide();
 		}
 		else if(data.status == 'success'){
+		$('[name="nptitle"]').val('');
+		$('[name="npcategory"]').val('');
+		$('[name="npcontent"]').val('');
 		$('#npfile').val('');
 		
 		
-		$('.stats').html('<span class="green">'+ data.message +'</span>');
-		
+		$('.stats').html('<span class="green">'+ data.message +'</span>');	
 		app.preloader.hide();
 
 		}
